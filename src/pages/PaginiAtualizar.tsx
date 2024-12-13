@@ -14,6 +14,7 @@ const UpdateBook: React.FC = () => {
 
   const navigate = useNavigate();
   const [selauthor, setauthorName] = useState<any[]>([]);
+  const [selISBN, setISBN] = useState<any[]>([]);
 
   useEffect(() => {  
     const fetchAutores = async () => {
@@ -44,6 +45,7 @@ try {
     <form onSubmit={handleSubmit}>
 
       <input
+      
       type="text"
       name="ISBN"
       placeholder="ISBN"
@@ -52,7 +54,8 @@ try {
         setbook({ ...Book,ISBN: e.target.value });
 
       } }
-      />  
+      />
+  
 
       <input
         type="text"

@@ -26,7 +26,16 @@ const ListBooks: React.FC = () => {
       <h1>Lista de Livros</h1>
       <ul>
         {books.map((book) => (
-          <li key={book.isbn}> {book.isbn} - {book.bookName} - {book.authorName} - {book.idAuthor} - {book.price}</li>
+          <li key={book.isbn}> 
+          
+           <p><strong>ISBN:</strong> {book.isbn}</p> 
+           <p><strong>Nome do Livro:</strong>{book.bookName}</p>   
+           <p><strong>Autor:</strong> {book.authorName}</p>  
+           <p><strong>ID do Autor:</strong>{book.idAuthor}</p>  
+           <p><strong>Preço:</strong>{book.price}€</p>
+           <p>________________________________________</p>
+           </li>
+           
         ))}
       </ul>
     </div>
@@ -38,55 +47,3 @@ export default ListBooks;
 
 
 
-/*
-
-const ListBooks: React.FC = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-
-  useEffect(() => {
-    fetchBooks();
-  }, []);
-
-  const fetchBooks = async () => {
-    const response = await listarlivros();
-    setBooks(response.data);
-  };
-
-
-  
-  if (books.length === 0) {
-    return <div>No books found.</div>;
-  }
-
-  return (
-    <div>
-      <h1>List of Books</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ISBN</th>
-            <th></th>
-            <th>Title</th>
-            <th></th>
-            <th>Author</th>
-
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((book) => (
-            <tr key={book.isbn}>
-              <td>{book.isbn}</td>
-              <td>{book.idAuthor}</td>
-              <td>{book.bookName}</td>
-              <td>{book.authorName}</td>
-              <td>{book.price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-export default ListBooks;*/
