@@ -5,7 +5,7 @@ import ListBooks from './pages/PaginiListar';
 import AddBook from './pages/PaginaAdicionar';
 import UpdateBook from './pages/PaginiAtualizar';
 import DeleteBook from './pages/PaginaApagar';
-
+import GetByISBN from './pages/Pagina_obterporisbn';
 import './App.css';
 import AddAuthores from './pages/PaginaAdicionarAutores';
 
@@ -21,7 +21,9 @@ const App: React.FC = () => {
         <Link to="/books/add">Add Book</Link> | 
         <Link to="/books/update">Update Book</Link> | 
         <Link to="/books/delete">Delete Book</Link> |
-        <Link to="/authors/add"> add Autores </Link>
+        <Link to="/authors/add"> add Autores </Link>|
+        <Link to="/books/getbyisbn">Search by ISBN</Link>
+
       </nav>
 
       <Routes>
@@ -31,7 +33,7 @@ const App: React.FC = () => {
          <Route path="/books/update" element={<UpdateBook />} /> 
         <Route path="/books/delete" element={<DeleteBook />} />
         <Route path="/authors/add" element ={<AddAuthores/>}/>
-        
+        <Route path="/books/getbyisbn" element={<GetByISBN/>}/>
       </Routes>
     </Router>
   );

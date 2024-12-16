@@ -27,6 +27,7 @@ export const listarautores=()=>api.get('/Autors');
 
 
 
+
 export default api;
 
 
@@ -53,6 +54,19 @@ export interface AddLivrosDto {
  export interface AddAutordto  {
   
   Name: string;
+
+
+ }
+
+
+
+ export interface BookDTO{
+  ISBN: string;
+  BookName: string;
+  AuthorName:string;
+  IdAuthor:number;
+  Price:string;
+ 
 
 
  }
