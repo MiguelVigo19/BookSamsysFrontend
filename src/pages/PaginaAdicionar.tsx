@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import {  AddLivrosDto, adicionarlivro, listarautores } from '../api';
+import {  AddLivrosDto, adicionarlivro, listarautores,obterporisbn } from '../api';
 
-import { useParams, useNavigate } from 'react-router-dom';
-import { Console } from 'console';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 
 const AddBook: React.FC = () => {
   const [mensagem, setmensagem] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const [NewBook, setbook] = useState<AddLivrosDto>({ ISBN: '', BookName: '',IdAuthor: 0 , Price: ''   });
   const navigate = useNavigate();
   const [selauthor, setauthorName] = useState<any[]>([]);
@@ -21,6 +22,7 @@ try {
         setauthorName(authors.data);
       } catch (error) {
         console.error('Erro ', error);
+        
       }
     };
     fetchAutores
@@ -32,10 +34,38 @@ try {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await adicionarlivro(NewBook);
-    navigate('/Books');
-  };
+    setError(null);
 
+    
+
+    try {
+      // Validação do ISBN
+      if (!NewBook.ISBN || !NewBook.BookName || !NewBook.IdAuthor || !NewBook.Price) {
+        setmensagem("Faltam campos por preencher");
+        return;
+      }
+
+
+      // Simulação de verificação se o livro já existe no sistema
+      /*
+      const livroExistente = await obterporisbn(NewBook.ISBN);
+      if (livroExistente !=null) {
+        setmensagem("O livro já existe no sistema.");
+        return;
+      }*/
+
+    await adicionarlivro(NewBook);
+    setmensagem("Livro adicionado com sucesso")
+    setTimeout(() => {
+      navigate('/Books');
+  }, 3000); // Atraso de 3 segundos (3000 ms)
+    
+    }catch  {
+      
+      setmensagem("Ocorreu um erro ao processar a solicitação.");
+    }
+  };
+  
 
 
   
@@ -44,7 +74,7 @@ try {
     <div>
       <h1>Adicionar Livro</h1>
       
-    <form onSubmit={handleSubmit}>
+   
 
       <input
       type="text"
@@ -103,10 +133,9 @@ try {
   
         } }
        />
-       <button type="submit">Add Book</button>
-       
-        {mensagem}  
-        </form>
+       <button onClick={handleSubmit}>Add book</button>
+      {mensagem}  
+        
       </div>
         
   );

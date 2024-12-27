@@ -6,15 +6,6 @@ const api = axios.create({
 });
 
 
-
-
- 
-
- 
-
-
-
-
 export const listarlivros = () => api.get('/Books');
 export const obterporisbn = (isbn: string) => api.get(`/Books/${isbn}`);
 export const adicionarlivro = (book:  AddLivrosDto) => api.post('/Books', book);
@@ -23,7 +14,7 @@ export const excluirlivro=(isbn:string) => api.delete(`/Books/${isbn}`);
 export const adicionarautor=(author: AddAutordto) => api.post('/Autors', author ) ;
 export const listarautores=()=>api.get('/Autors'); 
 
-
+ 
 
 
 
@@ -51,12 +42,10 @@ export interface AddLivrosDto {
 
 
 
- export interface AddAutordto  {
-  
-  Name: string;
+ export interface AddAutordto  {Name: string;}
 
 
- }
+ 
 
 
 
@@ -65,8 +54,20 @@ export interface AddLivrosDto {
   BookName: string;
   AuthorName:string;
   IdAuthor:number;
-  Price:string;
+  Price:string;}
  
 
+export interface MessageDTO<T>{
+ Mesage:string;
+ Sucesse:boolean;
+ Objt:T
 
- }
+}
+
+ 
+
+ 
+
+ 
+  
+ 

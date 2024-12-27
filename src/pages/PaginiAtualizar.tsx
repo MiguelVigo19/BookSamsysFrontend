@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {  atualizarlivro, UpdateLivrosDto,listarautores } from '../api';
+import {  atualizarlivro, UpdateLivrosDto,listarautores,obterporisbn } from '../api';
 import { useParams, useNavigate } from 'react-router-dom';
 
 
@@ -9,6 +9,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const UpdateBook: React.FC = () => {
   const [mensagem, setmensagem] = useState('');
+    const [error, setError] = useState<string | null>(null);
 
   const [Book, setbook] = useState<UpdateLivrosDto>({ ISBN: '', BookName: '',authorid: 0 , Price: ''   });
 
@@ -33,8 +34,36 @@ try {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    
+        
+    try {
+          // Validação dos campos
+          if (!Book.ISBN || !Book.BookName || !Book.authorid || !Book.Price) {
+            setmensagem("Faltam campos por preencher");
+            return;
+          }
+    
+          
+    
+          // Simulação de verificação se o livro já existe no sistema
+          const livroExistente = await obterporisbn(Book.ISBN);
+          if (livroExistente ==null) {
+            setmensagem("O livro não  existe no sistema.");
+            return;
+          }
+        
+    
+
     await atualizarlivro(Book.ISBN,Book);
-    navigate('/Books');
+    setmensagem(`livro com isbn: ${Book.ISBN} foi atualizado `)
+    setTimeout(() => {
+      navigate('/Books');
+  }, 3000); // Atraso de 3 segundos (3000 ms)
+        }
+        catch (err: any) {
+          setmensagem("Ocorreu um erro ao processar a solicitação.");
+        }
   };
 
 
