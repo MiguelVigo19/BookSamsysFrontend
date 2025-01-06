@@ -38,7 +38,10 @@ const AddAuthores: React.FC = () => {
 
   return (
     <div>
-      <h1>Adicionar Autor</h1>
+      <header className="header-gradient"> BookSamsys Librabry</header>
+      <h1 className="title"> Adicionar autores</h1> 
+      
+      
       
     <form onSubmit={handleSubmit}>
 

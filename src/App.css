@@ -20,16 +20,21 @@ header {
   padding: 20px;
   text-align: center;
   border-radius: 8px;
+  font-size: 24px;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  
+  text-align: left;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
-header p {
-  font-size: 1rem;
+ p {
+  height: 20px; /* Define a altura para criar espaçamento */
+  margin-bottom: 15px; 
 }
+
 
 /* Layout principal */
 .container {
@@ -38,62 +43,5 @@ header p {
   padding: 20px;
 }
 
-/* Grade de livros */
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
 
-/* Cartão do livro */
-.book-card {
-  background-color: #fff;
-  border: 1px solid #a03939;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
 
-.book-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.book-card img {
-  width: 100%;
-  height: auto;
-}
-
-.book-card .info {
-  padding: 15px;
-  text-align: center;
-}
-
-.book-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #3949ab;
-}
-
-.book-card p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-/* Botão */
-.book-card .btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  color: white;
-  background-color: #3949ab;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.book-card .btn:hover {
-  background-color: #5c6bc0;
-}

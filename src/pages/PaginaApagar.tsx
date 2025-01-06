@@ -29,7 +29,10 @@ const DeleteBook: React.FC = () => {
 
   return (
     <div>
-      <h1>Apagar Livro</h1>
+      <header className="header-gradient"> BookSamsys Librabry</header>
+      <h1 className="title"> Apagar livro</h1> 
+      
+      <p></p>
       <input placeholder="ISBN" value={isbn} onChange={(e) => setIsbn(e.target.value)} />
       <button onClick={handleDeleteBook}>Apagar</button>
       {sms && <p>{sms}</p>}

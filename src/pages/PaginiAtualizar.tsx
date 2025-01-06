@@ -69,7 +69,10 @@ try {
 
   return (
     <div>
-      <h1>Atualizar livro</h1>
+      <header className="header-gradient"> BookSamsys Librabry</header>
+      <h1 className="title"> Atualizar livro</h1> 
+      
+      <p></p>
       
     <form onSubmit={handleSubmit}>
 

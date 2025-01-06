@@ -5,9 +5,10 @@ import ListBooks from './pages/PaginiListar';
 import AddBook from './pages/PaginaAdicionar';
 import UpdateBook from './pages/PaginiAtualizar';
 import DeleteBook from './pages/PaginaApagar';
-import GetByISBN from './pages/Pagina_obterporisbn';
-import './App.css';
+import GetByISBN from './pages/Pagina_obterporisbn'; 
+import './App.css'; 
 import AddAuthores from './pages/PaginaAdicionarAutores';
+import './components/styles.css';
 
 
 

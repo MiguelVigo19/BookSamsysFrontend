@@ -1,0 +1,33 @@
+/* components.css */
+button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #dbe9f3;
+    transform: scale(1.05);
+  }
+  .header-gradient {
+    background: linear-gradient(135deg, #3949ab, #f39c12);
+    color: white;
+    padding: 4px;
+    text-align: center;
+    font-size: 0.8rem; /* Ajuste para um tamanho de letra menor */
+    border-radius: 2px;
+  }
+ 
+  .title {
+    font-size: 1.5rem; /* tamanho do texto */
+    color: #050c3f; /* Cor personalizada */
+    text-align: left; /* Alinha o texto ao centro */
+  }
+  
+  .spaced-paragraphs p {
+    height: 20px; /* Altura fixa para os parágrafos vazios */
+  }
+
+  .spaced-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento uniforme entre os parágrafos */
+  }

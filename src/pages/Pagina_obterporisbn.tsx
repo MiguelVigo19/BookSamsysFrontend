@@ -43,6 +43,7 @@ const GetByISBN: React.FC = () => {
 
   return (
     <div>
+      <header className="header-gradient"> BookSamsys Librabry</header>
       <form onSubmit={handleSubmit}>
         <label htmlFor="isbnInput">Pesquisar por ISBN:</label>
         <input

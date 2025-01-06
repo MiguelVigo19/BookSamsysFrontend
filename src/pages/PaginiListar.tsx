@@ -6,6 +6,7 @@ import {   listarlivros } from '../api';
 
 
 
+
 const ListBooks: React.FC = () => {
   const [books, setBooks] = useState<any[]>([]);
   const[originalbooks, setOriginalBooks]=useState<any[]>([]);
@@ -60,7 +61,14 @@ const ListBooks: React.FC = () => {
 
   return (
     <div>
-      <h1>Lista de Livros</h1>
+      <header className="header-gradient"> BookSamsys Librabry</header>
+      
+      <h1 className="title"> Lista de Livros</h1> 
+      
+      <p></p>
+     
+      
+      
 
        {/* Input para definir o preço máximo */}
        <div>

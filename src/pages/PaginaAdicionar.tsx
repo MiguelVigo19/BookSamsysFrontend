@@ -72,7 +72,10 @@ try {
 
   return (
     <div>
-      <h1>Adicionar Livro</h1>
+      <header className="header-gradient"> BookSamsys Librabry</header>
+      <h1 className="title"> Adicionar o livro</h1> 
+      
+      <p></p>
       
    
 
